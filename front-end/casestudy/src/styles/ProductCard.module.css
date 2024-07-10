@@ -1,0 +1,46 @@
+/* ProductCard.module.css */
+.card {
+  background-color: beige;
+    border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        width: 250px;
+        height: 250px;
+        text-align: left;
+        transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cardTitle {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .cardDescription {
+    margin-bottom: 10px;
+  }
+  
+  .cardLink {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+    .cardLink:hover,
+    .cardLink:focus,
+    .cardLink:active {
+      text-decoration: none;
+      /* Ensure underline is removed */
+      background-color: #333;
+      /* Change background color on hover/focus/active */
+    }
+  

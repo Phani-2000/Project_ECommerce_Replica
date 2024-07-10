@@ -1,0 +1,7 @@
+/* Layout.module.css */
+
+.container {
+    background-color: cornsilk; /* Example background color for child pages */
+    min-height: 100vh;
+  }
+  
