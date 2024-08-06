@@ -12,20 +12,16 @@ import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 
 @Configuration
 public class AWSConfig {
-	@Value("${aws.accessKeyId}")
-    private String accessKeyId;
-
-    @Value("${aws.secretKey}")
-    private String secretKey;
-
-
-    @Bean
-    public AmazonSNS amazonSNS() {
-        BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKeyId, secretKey);
-        return AmazonSNSClientBuilder.standard()
-                .withRegion(Regions.AP_SOUTH_1)
-                .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
-                .build();
-    }
+	/*
+	 * @Value("${aws.accessKeyId}") private String accessKeyId;
+	 * 
+	 * @Value("${aws.secretKey}") private String secretKey;
+	 * 
+	 * 
+	 * @Bean public AmazonSNS amazonSNS() { BasicAWSCredentials awsCreds = new
+	 * BasicAWSCredentials(accessKeyId, secretKey); return
+	 * AmazonSNSClientBuilder.standard() .withRegion(Regions.AP_SOUTH_1)
+	 * .withCredentials(new AWSStaticCredentialsProvider(awsCreds)) .build(); }
+	 */
 
 }

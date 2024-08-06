@@ -14,41 +14,29 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class SnsPublisherService {
-	@Autowired
-    private AmazonSNS amazonSNS;
-
-    @Value("${sns.topic.arn}")
-    private String snsTopicArn;
-
-    public void publishOrderPlacedMessage(String emailId, String orderId) {
-        try {
-            OrderMessage orderMessage = new OrderMessage(emailId, orderId);
-            ObjectMapper objectMapper = new ObjectMapper();
-            String message = objectMapper.writeValueAsString(orderMessage);
-
-            PublishRequest publishRequest = new PublishRequest(snsTopicArn, message);
-            PublishResult publishResult= amazonSNS.publish(publishRequest);
-            log.info(publishResult.getMessageId());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static class OrderMessage {
-        private String emailId;
-        private String orderId;
-
-        public OrderMessage(String emailId, String orderId) {
-            this.emailId = emailId;
-            this.orderId = orderId;
-        }
-
-        public String getEmailId() {
-            return emailId;
-        }
-
-        public String getOrderId() {
-            return orderId;
-        }
-    }
+	/*
+	 * @Autowired private AmazonSNS amazonSNS;
+	 * 
+	 * @Value("${sns.topic.arn}") private String snsTopicArn;
+	 * 
+	 * public void publishOrderPlacedMessage(String emailId, String orderId) { try {
+	 * OrderMessage orderMessage = new OrderMessage(emailId, orderId); ObjectMapper
+	 * objectMapper = new ObjectMapper(); String message =
+	 * objectMapper.writeValueAsString(orderMessage);
+	 * 
+	 * PublishRequest publishRequest = new PublishRequest(snsTopicArn, message);
+	 * PublishResult publishResult= amazonSNS.publish(publishRequest);
+	 * log.info(publishResult.getMessageId()); } catch (Exception e) {
+	 * e.printStackTrace(); } }
+	 * 
+	 * private static class OrderMessage { private String emailId; private String
+	 * orderId;
+	 * 
+	 * public OrderMessage(String emailId, String orderId) { this.emailId = emailId;
+	 * this.orderId = orderId; }
+	 * 
+	 * public String getEmailId() { return emailId; }
+	 * 
+	 * public String getOrderId() { return orderId; } }
+	 */
 }

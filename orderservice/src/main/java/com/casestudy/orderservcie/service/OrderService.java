@@ -29,11 +29,13 @@ public class OrderService {
 	private OrderRepository orderRepo;
 	@Autowired
 	private PaymentService paymentService;
-	/*
-	 * @Autowired private MailService mailService;
-	 */
-	@Autowired
-	private SnsPublisherService snsPublisherService;
+	
+	@Autowired 
+	private MailService mailService;
+	 
+	//@Autowired
+	//private SnsPublisherService snsPublisherService;
+	
 	@Autowired
 	private WebClient webClient;
 	
@@ -79,8 +81,8 @@ public class OrderService {
 
 	private void triggerEmail(String orderId, String userId) {
 		System.out.println("Triggering email");
-		// mailService.sendMail(orderId, userId);
-		snsPublisherService.publishOrderPlacedMessage(userId, orderId);
+		mailService.sendMail(orderId, userId);
+		//snsPublisherService.publishOrderPlacedMessage(userId, orderId);
 
 	}
 
