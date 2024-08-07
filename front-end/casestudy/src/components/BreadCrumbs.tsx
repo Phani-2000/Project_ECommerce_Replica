@@ -9,17 +9,28 @@ const Breadcrumbs = () => {
 
     return (
         <nav className={styles.breadcrumbs}>
-            <Link href="/">Home</Link>
-            {pathnames.map((pathname, index) => {
-                const href = `/${pathnames.slice(0, index + 1).join('/')}`;
-                return (
-                    <span key={href}>
-                        &gt; <Link href={href}>{pathname}</Link>
-                    </span>
-                );
+          <ul className={styles.breadcrumbList}>
+            <li>
+              <Link href="/">Home</Link>
+              <span> | </span>
+            </li>
+            {pathnames.map((name, index) => {
+              const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
+              const isLast = index === pathnames.length - 1;
+              return (
+                <li key={name}>
+                  {isLast ? (
+                    name
+                  ) : ( <><Link href={routeTo}>{name}</Link>
+                  <span> |</span></>
+                  
+                  )}
+                </li>
+              );
             })}
+          </ul>
         </nav>
-    );
-};
+      );
+    };
 
 export default Breadcrumbs;

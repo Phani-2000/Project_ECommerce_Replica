@@ -22,8 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className={styles.container}>
-          <Header />
+          
           <AuthProvider>
+            <Header />
             <Breadcrumbs/>
             <div style={{ paddingTop: "60px" }}>
               {children}
