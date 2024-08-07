@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { AuthProvider } from "@/components/AuthContext";
 import styles from "@/styles/Layout.module.css"; 
+import Breadcrumbs from "@/components/BreadCrumbs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,12 @@ export default function RootLayout({
       <body>
         <div className={styles.container}>
           <Header />
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <Breadcrumbs/>
+            <div style={{ paddingTop: "60px" }}>
+              {children}
+            </div>
+          </AuthProvider>
         </div>
       </body>
     </html>

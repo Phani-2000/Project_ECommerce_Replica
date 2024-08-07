@@ -3,7 +3,7 @@ import styles from "@/styles/Header.module.css";
 
 export const Header=()=>{
     return(
-        <nav className={styles.navbar}>
+        <nav className={styles.nav}>
             <ul className={styles.navList}>
               <li><Link href="/home">Home</Link></li>
               <li><Link href="/login">Login</Link></li>
