@@ -2,10 +2,10 @@
 import { useAuth } from "@/components/AuthContext";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import styles from "@/styles/Login.module.css"
 
-export default function LoginPage() {
+function LoginPage() {
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState("");
@@ -77,5 +77,13 @@ export default function LoginPage() {
       <p className={styles.registerLink}>For new user , register <Link href="register">Here</Link></p>
     </div>
   );
+  }
+
+  export default function LoginPageWrapper() {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <LoginPage />
+      </Suspense>
+    );
   }
   
