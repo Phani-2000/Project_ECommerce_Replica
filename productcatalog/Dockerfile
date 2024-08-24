@@ -9,7 +9,7 @@
 #ENTRYPOINT ["java", "-jar", "productcatalog.jar"]
 
 # Use a base image with Maven and Java installed
-FROM maven:3.8.7-openjdk-17 AS build
+FROM maven:3.8.8-eclipse-temurin-17 AS build
 
 # Set the working directory
 WORKDIR /app
@@ -22,7 +22,7 @@ COPY src /app/src/
 RUN mvn clean package -DskipTests
 
 # Use a smaller base image for running the app
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
